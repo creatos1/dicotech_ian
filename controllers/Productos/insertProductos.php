@@ -1,6 +1,7 @@
 <?php
 include ("../../config/connect.php");
 
+
 $upc = $_POST["upc"];
 $descripcion = $_POST["descripcion"];
 $costo = $_POST["costo"];

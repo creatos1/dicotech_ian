@@ -2,7 +2,6 @@
 include("config/connect.php");
 $sql = "SELECT * FROM producto";
 $query = mysqli_query($conn, $sql);
-$row = mysqli_fetch_array($query);
 
 
 ?>
@@ -12,36 +11,66 @@ $row = mysqli_fetch_array($query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Examen Ian</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <section>
-        <div>
+    <section class="Products">
+        <div class="registro">
             <h1>Registrar productos</h1>
             <section>
-                <form action = "controllers/Productos/insertProductos.php" method = "POST">
+                <form action="controllers/Productos/insertProductos.php" method="POST" onsubmit="return validar()">
                 <div>
-                    <a>Pieza de produto</a>
-                    <input type="text" name="upc" placeholder="Ingrese el UPC del producto" >
+                    <p>Pieza de produto</p>
+                    <input class="inputProducto" type="text" name="upc" placeholder="Ingrese el UPC del producto" >
                 </div>
                 <div>
-                    <a>Descripcion del producto</a>
-                    <input type="text" name="descripcion" placeholder="Ingrese la descripcion del producto">
+                    <p>Descripcion del producto</p>
+                    <input class="inputProducto" type="text" name="descripcion" placeholder="Ingrese la descripcion del producto">
                 </div>
                 <div>
-                    <a>Costo del producto</a>
-                    <input type="text" name="costo" placeholder="Ingrese el costo del producto">
+                    <p>Costo del producto</p>
+                    <input class="inputProducto" type="text" name="costo" placeholder="Ingrese el costo del producto">
                 </div>
                 <div>
-                    <a>Precio del producto</a>
-                    <input type="text" name="precio" placeholder="Ingrese el precio del producto">
+                    <p>Precio del producto</p>
+                    <input class="inputProducto" type="text" name="precio" placeholder="Ingrese el precio del producto">
                 </div>
                 <div>
-                    <a>Existencia del producto</a>
-                    <input type="text" name="existencia" placeholder="Ingrese la existencia del producto">
+                    <p>Existencia del producto</p> 
+                    <input class="inputProducto" type="text" name="existencia" placeholder="Ingrese la existencia del producto">
                 </div>
-                <button type = "submit" href ="controllers/Productos/insertProductos.php">Registrar producto</button>
+                <button class="inputProducto" type = "submit" href ="controllers/Productos/insertProductos.php">Registrar producto</button>
                 
                 </form>
+            </section>
+            <section>
+                <h1>Productos registrados</h1>
+                <table border="1" class="inputProducto">
+                    <tr>
+                        <th>UPC</th>
+                        <th>Descripcion</th>
+                        <th>Costo</th>
+                        <th>Precio</th>
+                        <th>Existencia</th>
+                        <th>Acciones</th>
+
+                    </tr>
+                    <?php
+                    while($row = mysqli_fetch_array($query)){
+                        echo "<tr>";
+                        echo "<td>" . $row["upc"] . "</td>";
+                        echo "<td>" . $row["descripcion"] . "</td>";
+                        echo "<td>" . $row["costo"] . "</td>";
+                        echo "<td>" . $row["precio"] . "</td>";
+                        echo "<td>" . $row["existencia"] . "</td>";
+                        echo "<td>
+                                <a href='view/Productos/updateProducto.php?upc=" . $row["upc"] . "'>Modificar</a> | 
+                                <a href='controllers/Productos/deleteProducto.php?upc=" . $row["upc"] . "' onclick='return confirm(\"¿Seguro?\")'>Eliminar</a>
+                              </td>";
+                        echo "</tr>";
+                    }
+                    ?>
+                </table>
             </section>
             
 
@@ -49,6 +78,7 @@ $row = mysqli_fetch_array($query);
         </div>
     
     </section>
+    <script src="js/validar.js"></script>
 
 </body>
 </html>
