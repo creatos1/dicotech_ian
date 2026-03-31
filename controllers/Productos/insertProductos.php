@@ -18,5 +18,5 @@ if($query){
 }else{
     echo "Error al insertar producto: " . mysqli_error($conn);
 }
-header("Location: ../../index.php");
+header("Location: ../../view/Productos/productos_home.php");
 ?>

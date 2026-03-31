@@ -6,6 +6,6 @@ $upc = $_GET["upc"];
 $sql = "DELETE FROM producto WHERE upc = '$upc'";
 $query = mysqli_query($conn, $sql);
 
-header("Location: ../../index.php");
+header("Location: ../../view/Productos/productos_home.php");
 
 ?>

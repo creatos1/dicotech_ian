@@ -1,0 +1,11 @@
+body {
+    font-family: calibri;
+    background: linear-gradient(135deg, #ffffff, #040404);
+    height: 100vh;
+    color: white;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

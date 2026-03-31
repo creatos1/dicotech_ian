@@ -1,31 +1,41 @@
 body{
     font-family: calibri;
-}
-.registro{
-    width: 50%;
-    margin: 10px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-.inputProducto{
-    width: 40%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    color: #000000;
-    background-color: #d2d2d2;
+    background: linear-gradient(135deg, #003495, #000f33);
+    height: 100vh;
+    color: white;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    transform: scale(1.25);      
+    transform-origin: center;     
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;      
 
 }
-.inputProducto:focus{
-    background-color: #e6f7ff;
-    color: #000000;
+.logobank img{
+    width: 100px;
+    height: 100px;
+}
+h1{
+    font-size: 300%;
+}
+.button{
+    background-color: transparent;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: 2px solid #f6f6f6;
+    border-radius: 5px;
+    cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    border-radius: 5px;
-    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+    display: block;
+    margin: 10px auto;
+}
+.button:hover {
+    background-color: #ffffff;
+    color: #007bff;
 }
